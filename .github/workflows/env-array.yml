@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  SOME_ARRAY: '"element_1" "element_2" "element_3"'
+  SOME_ARRAY: ',element_1,element_2,element_3'
 
 permissions: read-all
 
@@ -17,6 +17,6 @@ jobs:
       - name: Use array
         shell: bash
         run: |
-          for str in ${SOME_ARRAY//\ /}; do
+          for str in ${SOME_ARRAY//,/}; do
             echo "$str"
           done
