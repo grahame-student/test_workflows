@@ -1,0 +1,22 @@
+---
+name: ENV array test
+
+on:
+  workflow_dispatch:
+
+env:
+  SOME_ARRAY: ("element_1" "element_2" "element_3")
+
+permissions: read-all
+
+jobs:
+  test-array:
+    runs-on: ubuntu-latest    
+    name: Test Array
+    steps:
+      - name: Use array
+        shell: bash
+        run: |
+          for str in "${SOME_ARRAY[@]}"; do
+            echo "$str"
+          done
