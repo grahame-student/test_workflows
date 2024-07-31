@@ -17,7 +17,7 @@ jobs:
       - name: Use array
         shell: bash
         run: |
-          SOME_ARRAY=("${SOME_ARRAY}")
+          SOME_ARRAY=("${SOME_ARRAY}"// /)
           for str in "${SOME_ARRAY}"; do
             echo "$str"
           done
